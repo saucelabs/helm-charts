@@ -3,12 +3,12 @@ entries:
   sauce-connect:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2023-10-04T10:38:15.583851-07:00"
+    created: "2023-10-04T12:19:12.546684-07:00"
     description: A Helm chart for Sauce Connect Proxy Kubernetes deployment.
     digest: 8ab89f46742b84ea6bb904f630ca8625780eedc5cc7779dc36aac15a8e8a91e0
     name: sauce-connect
     type: application
     urls:
-    - https://github.com/saucelabs/helm-charts/sauce-connect-0.1.0.tgz
+    - https://opensource.saucelabs.com/helm-charts/sauce-connect-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-04T10:38:15.581616-07:00"
+generated: "2023-10-04T12:19:12.545417-07:00"
