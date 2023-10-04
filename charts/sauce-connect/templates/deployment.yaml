@@ -1,0 +1,83 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "sauce-connect.fullname" . }}
+  labels:
+    {{- include "sauce-connect.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.tunnelPoolSize }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "sauce-connect.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "sauce-connect.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "sauce-connect.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          env:
+            - name: SAUCE_REGION
+              value: {{ .Values.sc.region | quote }}
+            - name: SAUCE_USER
+              value: {{ .Values.sc.user | quote }}
+            - name: SAUCE_ACCESS_KEY
+              value: {{ .Values.sc.accessKey | quote }}
+            - name: SAUCE_API_ADDRESS
+              value: "0.0.0.0:{{ .Values.api.port }}"
+            - name: SAUCE_TUNNEL_NAME
+              value: {{ .Values.sc.tunnelName | quote }}
+            - name: SAUCE_TUNNEL_POOL
+              value: {{ .Values.tunnelPool | quote }}
+            - name: SAUCE_LOG_LEVEL
+              value: {{ .Values.sc.logLevel | quote }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: api
+              containerPort: {{ .Values.api.port }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.api.liveness }}
+              scheme: {{ .Values.api.scheme }}
+              port: {{ .Values.api.port }}
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.api.readiness }}
+              scheme: {{ .Values.api.scheme }}
+              port: {{ .Values.api.port }}
+            initialDelaySeconds: 4
+            periodSeconds: 1
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
