@@ -1,6 +1,6 @@
 apiVersion: v2
 name: sauce-connect
-description: A Helm chart for Sauce Connect Proxy Kubernetes deployment.
+description: Sauce Connect Proxy Helm chart.
 type: application
-version: 0.1.0
-appVersion: "0.1.0"
+version: 0.2.0
+appVersion: "5.0"
