@@ -23,13 +23,8 @@ helm install your-chart-name  saucelabs/chartName
 
 # Charts
 
-- [Sauce Connect Proxy 5.x.x Helm Chart](./charts/sauce-connect/README.md)
+- [Sauce Connect Proxy 5.x.x Helm Chart](./SAUCE-CONNECT.md)
 
 # License
 
 [Apache 2.0 License](https://github.com/saucelabs/helm-charts/blob/main/LICENSE).
-
-# Quick reference
-
-- __Where to get help__: the [Sauce Labs Community Hub](https://community.saucelabs.com), the [GitHub Issue](https://github.com/saucelabs/helm-charts/issues/new), or Stack Overflow
-- __GitHub Repository__: [saucelabs/helm-charts](https://github.com/saucelabs/helm-charts)

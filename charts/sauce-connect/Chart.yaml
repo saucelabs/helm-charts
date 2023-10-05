@@ -1,6 +1,0 @@
-apiVersion: v2
-name: sauce-connect
-description: Sauce Connect Proxy Helm chart.
-type: application
-version: 0.2.0
-appVersion: "5.0"
