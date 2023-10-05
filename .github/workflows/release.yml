@@ -1,12 +1,10 @@
 ---
-name: Release Sauce Connect
+name: Release Helm Charts
 
 on: # yamllint disable-line rule:truthy
   push:
     branches:
       - main
-    paths:
-      - 'charts/sauce-connect/Chart.yaml'
 
 jobs:
   release:
