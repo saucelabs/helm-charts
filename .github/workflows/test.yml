@@ -16,3 +16,4 @@ jobs:
           helm-version: v3.8.0
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - run: helm lint charts/sauce-connect
+      - run: helm lint charts/sauce-connect-4
