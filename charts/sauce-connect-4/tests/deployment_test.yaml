@@ -1,0 +1,36 @@
+suite: test deployment
+values:
+  - ./values/test.yaml # (1)
+templates:
+  - templates/deployment.yaml # (2)
+chart:
+  version: 0.1.0+test
+  appVersion: 1.0.0
+tests:
+  - it: should pass all kinds of assertion
+    template: templates/deployment.yaml
+    documentIndex: 0
+    asserts: # (3)
+      - equal:
+          path: spec.template.spec.containers[?(@.name == "sauce-connect-4")].image
+          value: saucelabs/sauce-connect:4.8.3
+      - matchRegex:
+          path: metadata.name
+          pattern: ^.*-connect-4$
+      - contains:
+          path: spec.template.spec.containers[?(@.name == "sauce-connect-4")].ports
+          content:
+            containerPort: 8032
+            name: status
+      - notContains:
+          path: spec.template.spec.containers[?(@.name == "sauce-connect-4")].ports
+          content:
+            containerPort: 80
+      - isNotEmpty:
+          path: spec.template.spec.containers[?(@.name == "sauce-connect-4")].livenessProbe
+      - isNotEmpty:
+          path: spec.template.spec.containers[?(@.name == "sauce-connect-4")].readinessProbe
+      - isKind:
+          of: Deployment
+      - isAPIVersion:
+          of: apps/v1

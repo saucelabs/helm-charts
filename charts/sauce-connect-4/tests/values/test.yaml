@@ -1,0 +1,4 @@
+---
+image:
+  repository: saucelabs/sauce-connect
+  tag: "4.8.3"
