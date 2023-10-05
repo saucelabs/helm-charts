@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "sauce-connect-4.fullname" . }}
+  labels:
+    {{- include "sauce-connect-4.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.status.port }}
+      targetPort: tcp
+      protocol: TCP
+      name: tcp
+  selector:
+    {{- include "sauce-connect-4.selectorLabels" . | nindent 4 }}

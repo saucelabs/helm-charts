@@ -24,6 +24,7 @@ helm install your-chart-name  saucelabs/chartName
 # Charts
 
 - [Sauce Connect Proxy 5.x.x Helm Chart](./charts/sauce-connect/README.md)
+- [Sauce Connect Proxy 4.x.x Helm Chart](./charts/sauce-connect-4/README.md)
 
 # License
 
