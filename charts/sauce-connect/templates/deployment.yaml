@@ -36,7 +36,7 @@ spec:
           env:
             - name: SAUCE_REGION
               value: {{ .Values.sc.region | quote }}
-            - name: SAUCE_USER
+            - name: SAUCE_USERNAME
               value: {{ .Values.sc.user | quote }}
             - name: SAUCE_ACCESS_KEY
               value: {{ .Values.sc.accessKey | quote }}
