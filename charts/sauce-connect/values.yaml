@@ -51,20 +51,18 @@ tolerations: []
 affinity: {}
 
 # Sauce Connect Proxy Configuration
-sc:
+# See https://docs.saucelabs.com/dev/cli/sauce-connect-5/run for more options
+config:
   region: "us-west"
-  # user must be defined
-  user: ""
+  # username must be defined
+  username: ""
   # accessKey must be defined
-  accessKey: ""
-  # It's recommended to define your own tunnelName
-  tunnelName: "sc-k8s-tunnel"
-  tunnelPool: "true"
-  logLevel: "info"
-# It's recommended to define your own tunnelName
-tunnelName: "sc-k8s-tunnel"
-tunnelPool: "true"
-scLogLevel: "info"
+  access-key: ""
+  # tunnel-name must be defined
+  tunnel-name: "sc-k8s-tunnel"
+  tunnel-pool: "true"
+  # enable api server, needed for k8s readiness/liveness probes
+  api-address: :8032
 
 # See https://docs.saucelabs.com/secure-connections/sauce-connect/proxy-tunnels/#configuring-status-server
 api:
