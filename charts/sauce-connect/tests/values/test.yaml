@@ -2,3 +2,4 @@
 image:
   repository: saucelabs/sauce-connect
   tag: "5.0"
+tunnelPoolSize: 2

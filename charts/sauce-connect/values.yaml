@@ -60,7 +60,6 @@ config:
   access-key: ""
   # tunnel-name must be defined
   tunnel-name: "sc-k8s-tunnel"
-  tunnel-pool: "true"
 
 # See https://docs.saucelabs.com/secure-connections/sauce-connect/proxy-tunnels/#configuring-status-server
 api:

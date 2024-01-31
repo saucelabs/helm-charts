@@ -38,6 +38,13 @@ spec:
               value: /etc/config/sauce-connect.yaml
             - name: SAUCE_API_ADDRESS
               value: :{{ .Values.api.port }}
+            {{- if .Values.config.tunnel_pool }}
+            - name: SAUCE_TUNNEL_POOL
+              value: "true"
+            {{- else if gt (int .Values.tunnelPoolSize) 1 }}
+            - name: SAUCE_TUNNEL_POOL
+              value: "true"
+            {{- end }}
             - name: GOMEMLIMIT
               valueFrom:
                 resourceFieldRef:
