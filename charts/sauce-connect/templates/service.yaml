@@ -8,8 +8,8 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.api.port }}
-      targetPort: tcp
+      targetPort: api
       protocol: TCP
-      name: tcp
+      name: api
   selector:
     {{- include "sauce-connect.selectorLabels" . | nindent 4 }}
