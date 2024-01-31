@@ -3,6 +3,16 @@ entries:
   sauce-connect:
   - apiVersion: v2
     appVersion: "5.0"
+    created: "2024-01-31T13:51:04.09535458Z"
+    description: Sauce Connect Proxy Helm chart.
+    digest: 6190054702db218840c2d5ec23088333fa7d0c9605709b1bfb78214d61e14c5d
+    name: sauce-connect
+    type: application
+    urls:
+    - https://github.com/saucelabs/helm-charts/releases/download/sauce-connect-0.2.1/sauce-connect-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: "5.0"
     created: "2024-01-31T09:22:38.277965015Z"
     description: Sauce Connect Proxy Helm chart.
     digest: 3dc630fb2d2fe13cab58de5b8a95dc2ee2f98b52111b6dbe4d584b749bf5096c
@@ -42,4 +52,4 @@ entries:
     urls:
     - https://github.com/saucelabs/helm-charts/releases/download/sauce-connect-4-0.1.0/sauce-connect-4-0.1.0.tgz
     version: 0.1.0
-generated: "2024-01-31T09:22:38.277982998Z"
+generated: "2024-01-31T13:51:04.095376391Z"
