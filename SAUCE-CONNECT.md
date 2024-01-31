@@ -24,7 +24,7 @@ For more information about the configuration options, see the [sc run command re
 
 ```bash
 helm repo add saucelabs https://opensource.saucelabs.com/helm-charts
-helm install sauce-connect  saucelabs/sauce-connect --values /path/to/values.yaml --set sc.tunnelName=your-pool-name --set tunnelPoolSize=1
+helm install sauce-connect  saucelabs/sauce-connect --values /path/to/values.yaml --set config.tunnel-name=your-pool-name --set tunnelPoolSize=2
   ```
 
 ## Application logs
@@ -46,3 +46,4 @@ The output should look like this:
 ## Pod restart
 
 The `terminationGracePeriodSeconds` is set to 600 seconds to allow sufficient time for jobs using the Sauce Connect Proxy to finish.
+It is recommended to adjust this value according to your tests typical duration.
