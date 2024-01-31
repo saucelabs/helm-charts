@@ -61,7 +61,7 @@ config:
   # tunnel-name must be defined
   tunnel-name: "sc-k8s-tunnel"
 
-# See https://docs.saucelabs.com/secure-connections/sauce-connect/proxy-tunnels/#configuring-status-server
+# See https://docs.saucelabs.com/secure-connections/sauce-connect-5/operation/api-server/
 api:
   liveness: /healthz
   readiness: /readyz
