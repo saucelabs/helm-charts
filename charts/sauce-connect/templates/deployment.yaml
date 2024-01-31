@@ -36,6 +36,8 @@ spec:
           env:
             - name: SAUCE_CONFIG_FILE
               value: /etc/config/sauce-connect.yaml
+            - name: SAUCE_API_ADDRESS
+              value: :{{ .Values.api.port }}
             - name: GOMEMLIMIT
               valueFrom:
                 resourceFieldRef:
