@@ -61,8 +61,6 @@ config:
   # tunnel-name must be defined
   tunnel-name: "sc-k8s-tunnel"
   tunnel-pool: "true"
-  # enable api server, needed for k8s readiness/liveness probes
-  api-address: :8032
 
 # See https://docs.saucelabs.com/secure-connections/sauce-connect/proxy-tunnels/#configuring-status-server
 api:
