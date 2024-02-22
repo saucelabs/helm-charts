@@ -3,6 +3,11 @@
 # tunnelPoolSize may be increased for Sauce Connect Proxy Pool setup
 tunnelPoolSize: 1
 
+# User Credentials must be set
+auth:
+  username: ""
+  access-key: ""
+
 image:
   repository: saucelabs/sauce-connect
   pullPolicy: IfNotPresent
@@ -54,10 +59,6 @@ affinity: {}
 # See https://docs.saucelabs.com/dev/cli/sauce-connect-5/run for more options
 config:
   region: "us-west"
-  # username must be defined
-  username: ""
-  # accessKey must be defined
-  access-key: ""
   # tunnel-name must be defined
   tunnel-name: "sc-k8s-tunnel"
 
