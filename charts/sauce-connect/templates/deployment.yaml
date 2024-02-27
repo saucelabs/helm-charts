@@ -38,6 +38,16 @@ spec:
               value: /etc/config/sauce-connect.yaml
             - name: SAUCE_API_ADDRESS
               value: :{{ .Values.api.port }}
+            - name: "SAUCE_USERNAME"
+              valueFrom:
+                secretKeyRef:
+                  key:  sauce_username
+                  name: {{ .Chart.Name }}-auth
+            - name: "SAUCE_ACCESS_KEY"
+              valueFrom:
+                secretKeyRef:
+                  key:  sauce_access_key
+                  name: {{ .Chart.Name }}-auth
             {{- if .Values.config.tunnel_pool }}
             - name: SAUCE_TUNNEL_POOL
               value: "true"

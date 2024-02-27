@@ -13,8 +13,6 @@ To use this chart:
 ```yaml
 config:
   region: us-west
-  username: johndoe
-  access-key: "xxx-xxx-xxx"
   tunnel-name: "my-k8s-tunnel"
 ```
 
@@ -24,7 +22,12 @@ For more information about the configuration options, see the [sc run command re
 
 ```bash
 helm repo add saucelabs https://opensource.saucelabs.com/helm-charts
-helm install sauce-connect  saucelabs/sauce-connect --values /path/to/values.yaml --set config.tunnel-name=your-pool-name --set tunnelPoolSize=2
+helm install sauce-connect  saucelabs/sauce-connect \
+    --values /path/to/values.yaml \
+    --set config.tunnel-name=your-pool-name \
+    --set tunnelPoolSize=2 \
+    --set auth.username=user \
+    --set auth.access-key=key
   ```
 
 ## Application logs
